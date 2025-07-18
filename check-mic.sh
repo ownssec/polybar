@@ -7,8 +7,8 @@ MIC_SOURCE=$(pactl info | grep "Default Source" | cut -d' ' -f3)
 IS_MUTED=$(pactl get-source-mute "$MIC_SOURCE" | awk '{print $2}')
 
 if [ "$IS_MUTED" = "yes" ]; then
-    echo "Mic off"
+    echo "mic off"
 else
-    echo "Mic on"
+    echo "mic on"
 fi
 
