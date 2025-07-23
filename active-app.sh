@@ -4,7 +4,7 @@
 win_id=$(xdotool getactivewindow 2>/dev/null)
 
 # Exit if no window is focused
-[ -z "$win_id" ] && echo "Desktop" && exit
+[ -z "$win_id" ] && echo "desktop" && exit
 
 # Try multiple methods to get the application name
 get_app_name() {
@@ -23,19 +23,18 @@ get_app_name() {
 # Get raw application name
 raw_name=$(get_app_name)
 
-# Simplify names (add more as needed)
+# Normalize and simplify names (add more as needed)
 case "$raw_name" in
-    "org.wezfurlong.wezterm") echo "Terminal" ;;
-    "Org.chromium.Chromium") echo "Chromium" ;;
-    "google-chrome") echo "Chrome" ;;
-    "firefox"*) echo "Firefox" ;;
-    "thunar"|"nautilus"|"dolphin") echo "Files" ;;
-    "code"|"vscode") echo "VSCode" ;;
-    "jetbrains-idea") echo "IntelliJ" ;;
-    "discord") echo "Discord" ;;
-    "spotify") echo "Spotify" ;;
-    "libreoffice"*) echo "LibreOffice" ;;
-    "gnome-terminal"|"konsole"|"xfce4-terminal") echo "Terminal" ;;
-    "") echo "Desktop" ;;
-    *) echo "$raw_name" ;;
+    "org.wezfurlong.wezterm") echo "terminal" ;;
+    "Org.chromium.Chromium") echo "chromium" ;;
+    "google-chrome") echo "chrome" ;;
+    "firefox"*) echo "firefox" ;;
+    "thunar"|"nautilus"|"dolphin") echo "files" ;;
+    "discord") echo "discord" ;;
+    "spotify") echo "spotify" ;;
+    "libreoffice"*) echo "libreoffice" ;;
+    "gnome-terminal"|"konsole"|"xfce4-terminal") echo "terminal" ;;
+    "") echo "desktop" ;;
+    *) echo "${raw_name,,}" ;;  # Convert to lowercase
 esac
+
