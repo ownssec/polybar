@@ -21,7 +21,6 @@ fi
 export MONITOR=$PRIMARY_MONITOR
 
 # Launch both panels
-# polybar topPanel --config="$HOME/.config/polybar/config-top.ini" &
 polybar bottomPanel --config="$HOME/.config/polybar/config.ini" &
 
 
