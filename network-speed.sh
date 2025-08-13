@@ -2,7 +2,8 @@
 
 LAN_IF="enp3s0"
 WIFI_IF="wlp0s20f3"
-ICON=""     # You want to use only this icon
+ICON="net"     # You want to use only this icon
+# ICON=""     # You want to use only this icon
 DEFAULT_OUTPUT="$ICON 0KB/s"
 
 get_total_speed() {
